@@ -1,10 +1,11 @@
 package dpUI;
 
-import processing.core.*;
+import processing.core.PApplet;
+import processing.core.PFont;
 
 public class DButton {
 	public PApplet p;
-	int x, y, w, h;
+	public int x, y, w, h;
 	public String id, text;
 	private float anim = 0;
 	public boolean toggle = false, toggler = false, enableAnimations = true, active = true;
@@ -13,7 +14,8 @@ public class DButton {
 	public PFont font;
 	public Runnable event = new Runnable() {
 		@Override
-		public void run() {}
+		public void run() {
+		}
 	};
 
 	public DButton(PApplet p, String id, int x, int y, int w, int h, String text) {
@@ -27,8 +29,7 @@ public class DButton {
 	}
 
 	public boolean checkIfHovered() {
-		return p.mouseX > x && p.mouseX < x + w + anim && p.mouseY > y - anim
-				&& p.mouseY < y + h;
+		return p.mouseX > x && p.mouseX < x + w + anim && p.mouseY > y - anim && p.mouseY < y + h;
 	}
 
 	public void render() {
@@ -38,12 +39,14 @@ public class DButton {
 		p.strokeWeight(borderSize);
 		p.stroke(borderColor);
 		p.textFont(font);
-		if (active)
+		if (active) {
 			p.rect(x, y, w, h);
+		}
 		p.fill(foregroundColor);
 		if (checkIfHovered()) {
-			if (enableAnimations)
+			if (enableAnimations) {
 				animTarget = 8;
+			}
 			p.fill(foregroundSelectColor);
 		}
 		if (active) {
@@ -52,8 +55,9 @@ public class DButton {
 			p.text(text, x + textXOffset + anim, y + textYOffset - anim);
 		}
 		anim += (animTarget - anim) / 5;
-		if (Math.abs(animTarget - anim) < 0.5f || !enableAnimations)
+		if (Math.abs(animTarget - anim) < 0.5f || !enableAnimations) {
 			anim = animTarget;
+		}
 		p.popStyle();
 	}
 }

@@ -1,10 +1,10 @@
-package dpUI.core;
+package dpUI;
 
+import java.util.ArrayList;
 import java.util.List;
-import dpUI.DButton;
 
 public class DMenu {
-	List<DButton> dbuttons;
+	public List<DButton> dbuttons = new ArrayList<>(0);
 
 	public DMenu() {
 	}
@@ -15,15 +15,17 @@ public class DMenu {
 
 	public void renderAll() {
 		for (DButton i : dbuttons) {
-			if (i.active)
+			if (i.active) {
 				i.render();
+			}
 		}
 	}
 
 	public void checkAll() {
 		for (DButton i : dbuttons) {
-			if (i.active && i.checkIfHovered())
+			if (i.active && i.checkIfHovered()) {
 				i.event.run();
+			}
 		}
 	}
 }
