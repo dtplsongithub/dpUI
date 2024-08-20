@@ -25,6 +25,7 @@ public class DProgressBar {
 		}
 		interiorW = w - indentation * 2;
 		interiorH = h - indentation * 2;
+		byte oldProgress = progress;
 		progress *= 100 / (maxSteps);
 		p.fill(0, 0);
 		p.stroke(borderColor);
@@ -38,5 +39,6 @@ public class DProgressBar {
 		p.text(text + (appendProgressToText ? + progress + "%" : ""), w / 2 + x, h / 2 + y);
 		p.rect(x + indentation, y + indentation, PApplet.lerp(0, interiorW, (float) (progress) / 100), interiorH);
 		p.textAlign(PConstants.LEFT, PConstants.BOTTOM);
+		progress = oldProgress;
 	}
 }
