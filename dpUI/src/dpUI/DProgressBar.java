@@ -1,6 +1,5 @@
 package dpUI;
 
-import dpUI.util.ShowMessage;
 import processing.core.*;
 
 public class DProgressBar {
@@ -24,7 +23,6 @@ public class DProgressBar {
 		if (!visible) {
 			return;
 		}
-		p.background(0);
 		interiorW = w - indentation * 2;
 		interiorH = h - indentation * 2;
 		progress *= 100 / (maxSteps);
@@ -37,7 +35,7 @@ public class DProgressBar {
 		p.rect(x + indentation, y + indentation, w - indentation * 2, h - indentation * 2);
 		p.textAlign(PConstants.CENTER, PConstants.CENTER);
 		p.fill(textColor);
-		p.text(text + (appendProgressToText ? +progress + "%" : ""), w / 2 + x, h / 2 + y);
+		p.text(text + (appendProgressToText ? + progress + "%" : ""), w / 2 + x, h / 2 + y);
 		p.rect(x + indentation, y + indentation, PApplet.lerp(0, interiorW, (float) (progress) / 100), interiorH);
 		p.textAlign(PConstants.LEFT, PConstants.BOTTOM);
 	}

@@ -8,9 +8,10 @@ public class DButton {
 	public int x, y, w, h;
 	public String id, text;
 	private float anim = 0;
-	public boolean toggle = false, toggler = false, enableAnimations = true, active = true;
+	public boolean toggle = false, toggler = false, enableAnimations = true, active = true, visible = true;
 	public int foregroundColor = 0xffffffff, foregroundSelectColor = 0xff80c0ff, backgroundColor = 0x40c4c4c4,
-			textColor = 0xff000000, borderColor = 0xff000000, borderSize = 1, textXOffset = 10, textYOffset = 20;
+			textColor = 0xff000000, borderColor = 0xff000000, borderSize = 1, textXOffset = 10, textYOffset = 20,
+			inactiveColor = 0xffbbbbbb;
 	public PFont font;
 	public Runnable event = new Runnable() {
 		@Override
@@ -29,6 +30,7 @@ public class DButton {
 	}
 
 	public boolean checkIfHovered() {
+		if (!visible || !active) return false;
 		return p.mouseX > x && p.mouseX < x + w + anim && p.mouseY > y - anim && p.mouseY < y + h;
 	}
 
@@ -39,7 +41,7 @@ public class DButton {
 		p.strokeWeight(borderSize);
 		p.stroke(borderColor);
 		p.textFont(font);
-		if (active) {
+		if (visible) {
 			p.rect(x, y, w, h);
 		}
 		p.fill(foregroundColor);
@@ -49,7 +51,9 @@ public class DButton {
 			}
 			p.fill(foregroundSelectColor);
 		}
-		if (active) {
+		if (!active)
+			p.fill(inactiveColor);
+		if (visible) {
 			p.rect(x + anim, y - anim, w, h);
 			p.fill(textColor);
 			p.text(text, x + textXOffset + anim, y + textYOffset - anim);
