@@ -37,6 +37,7 @@ public class DProgressBar {
 		p.textAlign(PConstants.CENTER, PConstants.CENTER);
 		p.fill(textColor);
 		p.text(text + (appendProgressToText ? + progress + "%" : ""), w / 2 + x, h / 2 + y);
+		p.fill(progressColor);
 		p.rect(x + indentation, y + indentation, PApplet.lerp(0, interiorW, (float) (progress) / 100), interiorH);
 		p.textAlign(PConstants.LEFT, PConstants.BOTTOM);
 		progress = oldProgress;
