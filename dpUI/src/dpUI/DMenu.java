@@ -3,7 +3,8 @@ package dpUI;
 import java.util.ArrayList;
 import java.util.List;
 
-// please ignore any DButton cannot be resolved to a type errors.
+// please ignore any "DButton cannot be resolved to a type" errors.
+// eclipse just hates that class for some reason.
 
 public class DMenu {
 	public List<DButton> db = new ArrayList<DButton>(0);
