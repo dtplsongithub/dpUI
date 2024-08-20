@@ -3,10 +3,10 @@ package dpUI.core;
 import java.util.List;
 import dpUI.DButton;
 
-public class Menu {
+public class DMenu {
 	List<DButton> dbuttons;
 
-	public Menu() {
+	public DMenu() {
 	}
 
 	public void add(DButton dbutton) {
