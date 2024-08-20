@@ -1,6 +1,7 @@
 package dpUI;
 
-import processing.core.*;
+import processing.core.PApplet;
+import processing.core.PConstants;
 
 public class DProgressBar {
 	public PApplet p;

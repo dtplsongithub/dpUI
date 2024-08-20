@@ -9,6 +9,7 @@ import java.util.List;
 public class DMenu {
 	public List<DButton> db = new ArrayList<DButton>(0);
 	public List<DProgressBar> dpb = new ArrayList<DProgressBar>(0);
+	public List<DCheckbox> dc = new ArrayList<DCheckbox>(0);
 	public boolean visible = true;
 
 	public DMenu() {
@@ -21,6 +22,10 @@ public class DMenu {
 	public void add(DProgressBar i) {
 		dpb.add(i);
 	}
+	
+	public void add(DCheckbox i) {
+		dc.add(i);
+	}
 
 	public void renderAll() {
 		if (!visible) return;
@@ -28,6 +33,9 @@ public class DMenu {
 			i.render();
 		}
 		for (DProgressBar i : dpb) {
+			i.render();
+		}
+		for (DCheckbox i : dc) {
 			i.render();
 		}
 	}
