@@ -19,7 +19,7 @@ public class DRadioButtonGroup {
 		int n = 0;
 		for (DRadioButton i : drb) {
 			n++;
-			o.render(n == currentActive);
+			i.render(n == currentActive);
 		}
 	}
 
