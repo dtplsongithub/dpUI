@@ -16,16 +16,21 @@ public class DRadioButtonGroup {
 	}
 
 	public void renderAll() {
-		int i = 0;
-		for (DRadioButton o : drb) {
-			i++;
-			o.render(i == currentActive);
+		int n = 0;
+		for (DRadioButton i : drb) {
+			n++;
+			o.render(n == currentActive);
 		}
 	}
 
 	public void checkAll() {
+		int n = 0;
 		for (DRadioButton i : drb) {
-			i.checkIfHovered();
+			n++;
+			if (i.checkIfHovered()) {
+				currentActive = n;
+				break;
+			}
 		}
 	}
 }

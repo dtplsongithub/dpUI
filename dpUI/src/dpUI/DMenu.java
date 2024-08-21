@@ -51,7 +51,7 @@ public class DMenu {
 		}
 	}
 
-	public void checkAll() {
+	public void checkClick() {
 		if (!visible) {
 			return;
 		}
@@ -64,6 +64,9 @@ public class DMenu {
 			if (i.checkIfHovered()) {
 				if (i.visible && i.active) i.checked = !i.checked;
 			}
+		}
+		for (DRadioButtonGroup i : drbg) {
+			i.checkAll();
 		}
 	}
 }
