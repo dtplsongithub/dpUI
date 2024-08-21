@@ -3,7 +3,6 @@ package dpUI;
 import java.util.ArrayList;
 import java.util.List;
 
-import dpUI.util.ShowMessage;
 
 // please ignore any "DSomething cannot be resolved to a type" errors.
 // eclipse just hates that class for some reason.
@@ -13,6 +12,7 @@ public class DMenu {
 	public List<DProgressBar> dpb = new ArrayList<>(0);
 	public List<DCheckbox> dc = new ArrayList<>(0);
 	public List<DRadioButtonGroup> drbg = new ArrayList<>(0);
+	public List<DLabel> dl = new ArrayList<>(0);
 	public boolean visible = true;
 
 	public DMenu() {
@@ -34,18 +34,19 @@ public class DMenu {
 		drbg.add(i);
 	}
 
+	public void add(DLabel i) {
+		dl.add(i);
+	}
+
 	public void renderAll() {
 		if (!visible) {
 			return;
 		}
-		try {
-			if (db.size() > 0) for (DButton i: db) i.render();
-			if (dpb.size() > 0) for (DProgressBar i: dpb) i.render();
-			if (dc.size() > 0) for (DCheckbox i: dc) i.render();
-			// if (drbg.size() > 0) for (DRadioButtonGroup i: drbg) i.renderAll();
-		} catch (NullPointerException e) {
-			ShowMessage.showError(e.toString(), true);
-		}
+		for (DButton i: db) i.render();
+		for (DProgressBar i: dpb) i.render();
+		for (DCheckbox i: dc) i.render();
+		for (DRadioButtonGroup i: drbg) i.renderAll();
+		for (DCheckbox i: dc) i.render();
 	}
 
 	public void checkClick() {
