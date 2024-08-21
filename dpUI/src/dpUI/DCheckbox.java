@@ -57,7 +57,7 @@ public class DCheckbox {
 			p.fill(textColor);
 		else
 			p.fill(inactiveTextColor);
-		p.text(text, x+textXOffset, y+testYOffset);
+		p.text(text, x+textXOffset, y+textYOffset);
 		p.popStyle();
 	}
 }
