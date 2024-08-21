@@ -38,16 +38,11 @@ public class DMenu {
 		if (!visible) {
 			return;
 		}
-		System.out.println(drbg.size());
 		try {
-			if (db.size() > 0)
-				db.forEach(i -> i.render());
-			if (dpb.size() > 0)
-				dpb.forEach(i -> i.render());
-			if (dc.size() > 0)
-				dc.forEach(i -> i.render());
-			if (drbg.size() > 0)
-				drbg.forEach(i -> i.renderAll());
+			if (db.size() > 0) for (DButton i: db) i.render();
+			if (dpb.size() > 0) for (DProgressBar i: dpb) i.render();
+			if (dc.size() > 0) for (DCheckbox i: dc) i.render();
+			// if (drbg.size() > 0) for (DRadioButtonGroup i: drbg) i.renderAll();
 		} catch (NullPointerException e) {
 			ShowMessage.showError(e.toString(), true);
 		}

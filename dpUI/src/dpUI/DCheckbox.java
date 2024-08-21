@@ -7,15 +7,16 @@ public class DCheckbox {
 	public PApplet p;
 	public int x, y, s = 16, borderColor = 0xffffffff, backgroundColor = 0xffcccccc, checkColor = 0xff000000,
 			textColor = 0xffffffff, inactiveBorderColor = 0xffeeeeee, inactiveBackgroundColor = 0xff777777,
-			inactiveCheckColor = 0xff333333, inactiveTextColor = 0xff777777, textXOffset = 0, textYOffset;
+			inactiveCheckColor = 0xff333333, inactiveTextColor = 0xff777777;
 	public boolean visible = true, active = true, checked = false, defaultState = false;
 	public String text;
 
-	public DCheckbox(PApplet p, int x, int y, int s) {
+	public DCheckbox(PApplet p, int x, int y, int s, String text) {
 		this.p = p;
 		this.x = x;
 		this.y = y;
 		this.s = s;
+		this.text = text;
 	}
 
 	public boolean checkIfHovered() {
@@ -57,7 +58,8 @@ public class DCheckbox {
 			p.fill(textColor);
 		else
 			p.fill(inactiveTextColor);
-		p.text(text, x+textXOffset, y+textYOffset);
+		p.textAlign(PConstants.CENTER, PConstants.CENTER);
+		p.text(text, x+s*1.5f, y+s/2);
 		p.popStyle();
 	}
 }

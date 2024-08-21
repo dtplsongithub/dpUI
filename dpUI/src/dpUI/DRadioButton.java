@@ -8,7 +8,7 @@ public class DRadioButton {
 	public boolean visible, active;
 	public int x, y, s = 16, borderColor = 0xffffffff, backgroundColor = 0xffcccccc, checkColor = 0xff000000,
 			textColor = 0xffffffff, inactiveBorderColor = 0xffeeeeee, inactiveBackgroundColor = 0xff777777,
-			inactiveCheckColor = 0xff333333, inactiveTextColor = 0xff777777, textXOffset = 0, textYOffset;
+			inactiveCheckColor = 0xff333333, inactiveTextColor = 0xff777777;
 	public String text;
 
 	public DRadioButton(PApplet p, int x, int y, int s, String text) {
@@ -41,7 +41,8 @@ public class DRadioButton {
 			p.fill(textColor);
 		else
 			p.fill(inactiveTextColor);
-		p.text(text, x+textXOffset, y+textYOffset);
+		p.textAlign(PConstants.CENTER, PConstants.CENTER);
+		p.text(text, x+s*1.5f, y+s/2);
 		p.popStyle();
 	}
 
