@@ -4,7 +4,7 @@ import processing.core.PApplet;
 import processing.core.PConstants;
 
 public class DCheckbox {
-	public PApplet p;
+	protected PApplet p;
 	public int x, y, s = 16, borderColor = 0xffffffff, backgroundColor = 0xffcccccc, checkColor = 0xff000000,
 			textColor = 0xffffffff, inactiveBorderColor = 0xffeeeeee, inactiveBackgroundColor = 0xff777777,
 			inactiveCheckColor = 0xff333333, inactiveTextColor = 0xff777777;
@@ -58,7 +58,7 @@ public class DCheckbox {
 			p.fill(textColor);
 		else
 			p.fill(inactiveTextColor);
-		p.textAlign(PConstants.CENTER, PConstants.LEFT);
+		p.textAlign(PConstants.LEFT, PConstants.CENTER);
 		p.text(text, x+s*1.5f, y+s/2);
 		p.popStyle();
 	}

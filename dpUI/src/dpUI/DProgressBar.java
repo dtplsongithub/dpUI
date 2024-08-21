@@ -4,7 +4,7 @@ import processing.core.PApplet;
 import processing.core.PConstants;
 
 public class DProgressBar {
-	public PApplet p;
+	protected PApplet p;
 	public int x, y, w, h, borderColor = 0xFF00FF00, progressColor = 0xFF00FF00, interiorColor = 0xFF003300,
 			textColor = 0xFFFFFFFF;
 	public boolean visible = true, appendProgressToText = true;

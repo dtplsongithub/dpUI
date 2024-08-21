@@ -3,7 +3,7 @@ package dpUI;
 import processing.core.PApplet;
 
 public class DButton {
-	public PApplet p;
+	protected PApplet p;
 	public int x, y, w, h;
 	public String text;
 	private float anim = 0;
