@@ -41,13 +41,13 @@ public class DCheckbox {
 			p.stroke(checkColor);
 		else
 			p.stroke(inactiveCheckColor);
-		p.strokeWeight(Math.max(s/6, 1));
-		p.strokeJoin(PConstants.ROUND);
+		p.strokeWeight(Math.max(s/5, 1));
+		p.strokeJoin(PConstants.MITER);
 		p.strokeCap(PConstants.ROUND);
 		p.beginShape();
-		p.vertex(x, y+s/2);
-		p.vertex(x+s/2, y+s);
-		p.vertex(x+s, y);
+		p.vertex(x+s/5, y+s/1.8f);
+		p.vertex(x+s/2.4f, y+s-s/5);
+		p.vertex(x+s-s/5, y+s/5);
 		p.endShape();
 		p.popStyle();
 	}
