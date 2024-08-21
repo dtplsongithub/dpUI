@@ -41,7 +41,7 @@ public class DRadioButton {
 			p.fill(textColor);
 		else
 			p.fill(inactiveTextColor);
-		p.textAlign(PConstants.CENTER, PConstants.CENTER);
+		p.textAlign(PConstants.CENTER, PConstants.LEFT);
 		p.text(text, x+s*1.5f, y+s/2);
 		p.popStyle();
 	}
