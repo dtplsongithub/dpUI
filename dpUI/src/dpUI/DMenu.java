@@ -60,7 +60,7 @@ public class DMenu {
 				i.event.run();
 			}
 		}
-		for (DCheckbox i : db) {
+		for (DCheckbox i : dc) {
 			if (i.checkIfHovered()) {
 				if (i.visible && i.active) i.checked = !i.checked;
 			}
