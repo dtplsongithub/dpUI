@@ -6,8 +6,10 @@ import processing.core.PConstants;
 public class DCheckbox {
 	public PApplet p;
 	public int x, y, s = 16, borderColor = 0xffffffff, backgroundColor = 0xffcccccc, checkColor = 0xff000000,
-			inactiveBorderColor = 0xffeeeeee, inactiveBackgroundColor = 0xff777777, inactiveCheckColor = 0xff333333;
+			textColor = 0xffffffff, inactiveBorderColor = 0xffeeeeee, inactiveBackgroundColor = 0xff777777,
+			inactiveCheckColor = 0xff333333, inactiveTextColor = 0xff777777, textXOffset = 0, textYOffset;
 	public boolean visible = true, active = true, checked = false, defaultState = false;
+	public String text;
 
 	public DCheckbox(PApplet p, int x, int y, int s) {
 		this.p = p;
@@ -37,18 +39,25 @@ public class DCheckbox {
 		}
 		p.rect(x, y, s, s);
 		p.noFill();
-		if (active) 
+		if (active)
 			p.stroke(checkColor);
 		else
 			p.stroke(inactiveCheckColor);
-		p.strokeWeight(Math.max(s/5, 1));
+		p.strokeWeight(Math.max(s / 5, 1));
 		p.strokeJoin(PConstants.MITER);
 		p.strokeCap(PConstants.ROUND);
+		if (!checked)
+			p.noStroke();
 		p.beginShape();
-		p.vertex(x+s/5, y+s/1.8f);
-		p.vertex(x+s/2.4f, y+s-s/5);
-		p.vertex(x+s-s/5, y+s/5);
+		p.vertex(x + s / 5, y + s / 1.8f);
+		p.vertex(x + s / 2.4f, y + s - s / 5);
+		p.vertex(x + s - s / 5, y + s / 5);
 		p.endShape();
+		if (active)
+			p.fill(textColor);
+		else
+			p.fill(inactiveTextColor);
+		p.text(text, x+textXOffset, y+testYOffset);
 		p.popStyle();
 	}
 }

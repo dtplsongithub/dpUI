@@ -1,7 +1,6 @@
 package dpUI;
 
 import processing.core.PApplet;
-import processing.core.PFont;
 
 public class DButton {
 	public PApplet p;
@@ -12,7 +11,6 @@ public class DButton {
 	public int foregroundColor = 0xffffffff, foregroundSelectColor = 0xff80c0ff, backgroundColor = 0x40c4c4c4,
 			textColor = 0xff000000, borderColor = 0xff000000, borderSize = 1, textXOffset = 10, textYOffset = 20,
 			inactiveColor = 0xffbbbbbb, inactiveTextColor;
-	public PFont font;
 	public Runnable event = new Runnable() {
 		@Override
 		public void run() {
@@ -40,7 +38,6 @@ public class DButton {
 		p.fill(backgroundColor);
 		p.strokeWeight(borderSize);
 		p.stroke(borderColor);
-		p.textFont(font);
 		if (visible) {
 			p.rect(x, y, w, h);
 		}
