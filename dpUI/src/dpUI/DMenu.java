@@ -32,23 +32,14 @@ public class DMenu {
 		drbg.add(i);
 	}
 
-
 	public void renderAll() {
 		if (!visible) {
 			return;
 		}
-		for (DButton i : db) {
-			i.render();
-		}
-		for (DProgressBar i : dpb) {
-			i.render();
-		}
-		for (DCheckbox i : dc) {
-			i.render();
-		}
-		for (DRadioButtonGroup i : drbg) {
-			i.renderAll();
-		}
+		if (db.size() > 0) db.forEach(i -> i.render());
+		if (dpb.size() > 0) dpb.forEach(i -> i.render());
+		if (dc.size() > 0) dc.forEach(i -> i.render());
+		if (drbg.size() > 0) drbg.forEach(i -> i.renderAll());
 	}
 
 	public void checkClick() {
@@ -62,7 +53,8 @@ public class DMenu {
 		}
 		for (DCheckbox i : dc) {
 			if (i.checkIfHovered()) {
-				if (i.visible && i.active) i.checked = !i.checked;
+				if (i.visible && i.active)
+					i.checked = !i.checked;
 			}
 		}
 		for (DRadioButtonGroup i : drbg) {
