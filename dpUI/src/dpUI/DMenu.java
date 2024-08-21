@@ -3,6 +3,8 @@ package dpUI;
 import java.util.ArrayList;
 import java.util.List;
 
+import dpUI.util.ShowMessage;
+
 // please ignore any "DSomething cannot be resolved to a type" errors.
 // eclipse just hates that class for some reason.
 
@@ -36,10 +38,19 @@ public class DMenu {
 		if (!visible) {
 			return;
 		}
-		if (db.size() > 0) db.forEach(i -> i.render());
-		if (dpb.size() > 0) dpb.forEach(i -> i.render());
-		if (dc.size() > 0) dc.forEach(i -> i.render());
-		if (drbg.size() > 0) drbg.forEach(i -> i.renderAll());
+		System.out.println(drbg.size());
+		try {
+			if (db.size() > 0)
+				db.forEach(i -> i.render());
+			if (dpb.size() > 0)
+				dpb.forEach(i -> i.render());
+			if (dc.size() > 0)
+				dc.forEach(i -> i.render());
+			if (drbg.size() > 0)
+				drbg.forEach(i -> i.renderAll());
+		} catch (NullPointerException e) {
+			ShowMessage.showError(e.toString(), true);
+		}
 	}
 
 	public void checkClick() {

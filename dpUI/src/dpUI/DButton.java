@@ -5,7 +5,7 @@ import processing.core.PApplet;
 public class DButton {
 	public PApplet p;
 	public int x, y, w, h;
-	public String id, text;
+	public String text;
 	private float anim = 0;
 	public boolean toggle = false, toggler = false, enableAnimations = true, active = true, visible = true;
 	public int foregroundColor = 0xffffffff, foregroundSelectColor = 0xff80c0ff, backgroundColor = 0x40c4c4c4,
@@ -17,9 +17,8 @@ public class DButton {
 		}
 	};
 
-	public DButton(PApplet p, String id, int x, int y, int w, int h, String text) {
+	public DButton(PApplet p, int x, int y, int w, int h, String text) {
 		this.p = p;
-		this.id = id;
 		this.x = x;
 		this.y = y;
 		this.w = w;
