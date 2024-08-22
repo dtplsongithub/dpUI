@@ -2,7 +2,6 @@ package dpUI;
 
 import processing.core.PApplet;
 import processing.core.PConstants;
-import processing.core.PGraphics;
 
 public class DLabel {
 	protected PApplet p;
@@ -28,10 +27,10 @@ public class DLabel {
 	public void render() {
 		if (!visible)
 			return;
-		g.pushStyle();
-		g.textAlign(alignX, alignY);
-		g.fill(textColor);
-		g.text(text, x, y);
-		g.popStyle();
+		p.pushStyle();
+		p.textAlign(alignX, alignY);
+		p.fill(textColor);
+		p.text(text, x, y);
+		p.popStyle();
 	}
 }
