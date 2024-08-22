@@ -6,7 +6,7 @@ import processing.core.PGraphics;
 
 public class DRadioButton {
 	protected PApplet p;
-	public boolean visible, active;
+	public boolean visible = true, active = true;
 	public int x, y, s = 16, borderColor = 0xffffffff, backgroundColor = 0xffcccccc, checkColor = 0xff000000,
 			textColor = 0xffffffff, inactiveBorderColor = 0xffeeeeee, inactiveBackgroundColor = 0xff777777,
 			inactiveCheckColor = 0xff333333, inactiveTextColor = 0xff777777;
