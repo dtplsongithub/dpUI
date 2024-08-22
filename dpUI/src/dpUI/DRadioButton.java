@@ -2,6 +2,7 @@ package dpUI;
 
 import processing.core.PApplet;
 import processing.core.PConstants;
+import processing.core.PGraphics;
 
 public class DRadioButton {
 	protected PApplet p;
@@ -19,31 +20,31 @@ public class DRadioButton {
 		this.text = text;
 	}
 
-	public void render(boolean checked) {
+	public void render(PGraphics g, boolean checked) {
 		if (!visible) return;
-		p.pushStyle();
+		g.pushStyle();
 		if (active) {
-			p.fill(backgroundColor);
-			p.stroke(borderColor);
+			g.fill(backgroundColor);
+			g.stroke(borderColor);
 		} else {
-			p.fill(inactiveBackgroundColor);
-			p.stroke(inactiveBorderColor);
+			g.fill(inactiveBackgroundColor);
+			g.stroke(inactiveBorderColor);
 		}
-		p.ellipseMode(PConstants.CORNER);
-		p.ellipse(x, y, s, s);
+		g.ellipseMode(PConstants.CORNER);
+		g.ellipse(x, y, s, s);
 		if (active)
-			p.fill(checkColor);
-		else 
-			p.fill(inactiveCheckColor);
-		p.noStroke();
-		p.ellipse(x+s/4, y+s/4, s/2, s/2);
-		if (active)
-			p.fill(textColor);
+			g.fill(checkColor);
 		else
-			p.fill(inactiveTextColor);
-		p.textAlign(PConstants.LEFT, PConstants.CENTER);
-		p.text(text, x+s*1.5f, y+s/2);
-		p.popStyle();
+			g.fill(inactiveCheckColor);
+		g.noStroke();
+		g.ellipse(x+s/4, y+s/4, s/2, s/2);
+		if (active)
+			g.fill(textColor);
+		else
+			g.fill(inactiveTextColor);
+		g.textAlign(PConstants.LEFT, PConstants.CENTER);
+		g.text(text, x+s*1.5f, y+s/2);
+		g.popStyle();
 	}
 
 	public boolean checkIfHovered() {

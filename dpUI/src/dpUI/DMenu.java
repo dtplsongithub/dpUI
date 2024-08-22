@@ -2,12 +2,16 @@ package dpUI;
 
 import java.util.ArrayList;
 import java.util.List;
-
+import processing.core.PApplet;
+import processing.core.PGraphics;
 
 // please ignore any "DSomething cannot be resolved to a type" errors.
 // eclipse just hates that class for some reason.
 
 public class DMenu {
+	protected PApplet p;
+	public PGraphics g;
+	public int x, y;
 	public List<DButton> db = new ArrayList<>(0);
 	public List<DProgressBar> dpb = new ArrayList<>(0);
 	public List<DCheckbox> dc = new ArrayList<>(0);
@@ -15,7 +19,11 @@ public class DMenu {
 	public List<DLabel> dl = new ArrayList<>(0);
 	public boolean visible = true;
 
-	public DMenu() {
+	public DMenu(PApplet p, int x, int y, int w, int h, String renderer) {
+		this.p = p;
+		this.x = x;
+		this.y = y;
+		this.g = p.createGraphics(w, h, renderer);
 	}
 
 	public void add(DButton i) {
@@ -39,14 +47,14 @@ public class DMenu {
 	}
 
 	public void renderAll() {
-		if (!visible) {
+		if (!visible)
 			return;
-		}
-		for (DButton i: db) i.render();
-		for (DProgressBar i: dpb) i.render();
-		for (DCheckbox i: dc) i.render();
-		for (DRadioButtonGroup i: drbg) i.renderAll();
-		for (DCheckbox i: dc) i.render();
+		for (DButton i : db) i.render(g);
+		for (DProgressBar i : dpb) i.render(g);
+		for (DCheckbox i : dc) i.render(g);
+		for (DRadioButtonGroup i : drbg) i.renderAll(g);
+		for (DLabel i : dl) i.render(g);
+		p.image(g, x, y);
 	}
 
 	public void checkClick() {

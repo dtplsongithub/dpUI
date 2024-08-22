@@ -3,6 +3,8 @@ package dpUI;
 import java.util.ArrayList;
 import java.util.List;
 
+import processing.core.PGraphics;
+
 public class DRadioButtonGroup {
 	public List<DRadioButton> drb = new ArrayList<>(0);
 	public boolean visible = true;
@@ -15,11 +17,11 @@ public class DRadioButtonGroup {
 		drb.add(i);
 	}
 
-	public void renderAll() {
+	public void renderAll(PGraphics g) {
 		int n = 0;
 		for (DRadioButton i : drb) {
 			n++;
-			i.render(n == currentActive);
+			i.render(g, n == currentActive);
 		}
 	}
 
