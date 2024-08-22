@@ -10,6 +10,7 @@ public class DLabel {
 	public String text;
 
 	public DLabel(PApplet p, int x, int y, String text) {
+		this.p = p;
 		this.x = x;
 		this.y = y;
 		this.text = text;

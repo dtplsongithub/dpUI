@@ -12,7 +12,8 @@ public class DProgressBar {
 	public String text = "";
 	private int interiorW, interiorH;
 
-	public DProgressBar(int x, int y, int w, int h) {
+	public DProgressBar(PApplet p, int x, int y, int w, int h) {
+		this.p = p;
 		this.x = x;
 		this.y = y;
 		this.w = w;
