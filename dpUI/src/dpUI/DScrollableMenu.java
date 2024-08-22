@@ -8,7 +8,7 @@ public class DScrollableMenu extends DMenu {
 	int scrollY = 0;
 
 	public DScrollableMenu(PApplet p, int x, int y, int w, int h, String renderer) {
-		super(p, x, y, w, h, renderer);
+		super();
 	}
 	
 	public void renderAll() {

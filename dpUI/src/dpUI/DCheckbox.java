@@ -2,7 +2,6 @@ package dpUI;
 
 import processing.core.PApplet;
 import processing.core.PConstants;
-import processing.core.PGraphics;
 
 public class DCheckbox {
 	protected PApplet p;
@@ -26,41 +25,41 @@ public class DCheckbox {
 		return p.mouseX > x && p.mouseX < x + s && p.mouseY > y && p.mouseY < y + s;
 	}
 
-	public void render(PGraphics g) {
+	public void render() {
 		if (!active)
 			checked = defaultState;
 		if (!visible)
 			return;
-		g.pushStyle();
+		p.pushStyle();
 		if (active) {
-			g.fill(backgroundColor);
-			g.stroke(borderColor);
+			p.fill(backgroundColor);
+			p.stroke(borderColor);
 		} else {
-			g.fill(inactiveBackgroundColor);
-			g.stroke(inactiveBorderColor);
+			p.fill(inactiveBackgroundColor);
+			p.stroke(inactiveBorderColor);
 		}
-		g.rect(x, y, s, s);
-		g.noFill();
+		p.rect(x, y, s, s);
+		p.noFill();
 		if (active)
-			g.stroke(checkColor);
+			p.stroke(checkColor);
 		else
-			g.stroke(inactiveCheckColor);
-		g.strokeWeight(Math.max(s / 5, 1));
-		g.strokeJoin(PConstants.MITER);
-		g.strokeCap(PConstants.ROUND);
+			p.stroke(inactiveCheckColor);
+		p.strokeWeight(Math.max(s / 5, 1));
+		p.strokeJoin(PConstants.MITER);
+		p.strokeCap(PConstants.ROUND);
 		if (!checked)
-			g.noStroke();
-		g.beginShape();
-		g.vertex(x + s / 5, y + s / 1.8f);
-		g.vertex(x + s / 2.4f, y + s - s / 5);
-		g.vertex(x + s - s / 5, y + s / 5);
-		g.endShape();
+			p.noStroke();
+		p.beginShape();
+		p.vertex(x + s / 5, y + s / 1.8f);
+		p.vertex(x + s / 2.4f, y + s - s / 5);
+		p.vertex(x + s - s / 5, y + s / 5);
+		p.endShape();
 		if (active)
-			g.fill(textColor);
+			p.fill(textColor);
 		else
-			g.fill(inactiveTextColor);
-		g.textAlign(PConstants.LEFT, PConstants.CENTER);
-		g.text(text, x+s*1.5f, y+s/2);
-		g.popStyle();
+			p.fill(inactiveTextColor);
+		p.textAlign(PConstants.LEFT, PConstants.CENTER);
+		if (text.length() > 0) p.text(text, x+s*1.5f, y+s/2);
+		p.popStyle();
 	}
 }

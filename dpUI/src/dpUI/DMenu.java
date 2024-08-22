@@ -3,14 +3,12 @@ package dpUI;
 import java.util.ArrayList;
 import java.util.List;
 import processing.core.PApplet;
-import processing.core.PGraphics;
 
 // please ignore any "DSomething cannot be resolved to a type" errors.
 // eclipse just hates that class for some reason.
 
 public class DMenu {
 	protected PApplet p;
-	public PGraphics g;
 	public List<DButton> db = new ArrayList<>(0);
 	public List<DProgressBar> dpb = new ArrayList<>(0);
 	public List<DCheckbox> dc = new ArrayList<>(0);
@@ -44,11 +42,11 @@ public class DMenu {
 	public void renderAll() {
 		if (!visible)
 			return;
-		for (DButton i : db) i.render(g);
-		for (DProgressBar i : dpb) i.render(g);
-		for (DCheckbox i : dc) i.render(g);
-		for (DRadioButtonGroup i : drbg) i.renderAll(g);
-		for (DLabel i : dl) i.render(g);
+		for (DButton i : db) i.render();
+		for (DProgressBar i : dpb) i.render();
+		for (DCheckbox i : dc) i.render();
+		for (DRadioButtonGroup i : drbg) i.renderAll();
+		for (DLabel i : dl) i.render();
 	}
 
 	public void checkClick() {

@@ -2,9 +2,9 @@ package dpUI;
 
 import processing.core.PApplet;
 import processing.core.PConstants;
-import processing.core.PGraphics;
 
 public class DProgressBar {
+	protected PApplet p;
 	public int x, y, w, h, borderColor = 0xFF00FF00, progressColor = 0xFF00FF00, interiorColor = 0xFF003300,
 			textColor = 0xFFFFFFFF;
 	public boolean visible = true, appendProgressToText = true;
@@ -19,7 +19,7 @@ public class DProgressBar {
 		this.h = h;
 	}
 
-	public void render(PGraphics g) {
+	public void render() {
 		if (!visible) {
 			return;
 		}
@@ -27,20 +27,20 @@ public class DProgressBar {
 		interiorH = h - indentation * 2;
 		byte oldProgress = progress;
 		progress *= 100 / (maxSteps);
-		g.pushStyle();
-		g.fill(0, 0);
-		g.stroke(borderColor);
-		g.strokeWeight(borderSize);
-		g.rect(x, y, w, h);
-		g.noStroke();
-		g.fill(interiorColor);
-		g.rect(x + indentation, y + indentation, w - indentation * 2, h - indentation * 2);
-		g.textAlign(PConstants.CENTER, PConstants.CENTER);
-		g.fill(textColor);
-		g.text(text + (appendProgressToText ? + progress + "%" : ""), w / 2 + x, h / 2 + y);
-		g.fill(progressColor);
-		g.rect(x + indentation, y + indentation, PApplet.lerp(0, interiorW, (float) (progress) / 100), interiorH);
-		g.popStyle();
+		p.pushStyle();
+		p.fill(0, 0);
+		p.stroke(borderColor);
+		p.strokeWeight(borderSize);
+		p.rect(x, y, w, h);
+		p.noStroke();
+		p.fill(interiorColor);
+		p.rect(x + indentation, y + indentation, w - indentation * 2, h - indentation * 2);
+		p.textAlign(PConstants.CENTER, PConstants.CENTER);
+		p.fill(textColor);
+		p.text(text + (appendProgressToText ? + progress + "%" : ""), w / 2 + x, h / 2 + y);
+		p.fill(progressColor);
+		p.rect(x + indentation, y + indentation, PApplet.lerp(0, interiorW, (float) (progress) / 100), interiorH);
+		p.popStyle();
 		progress = oldProgress;
 	}
 }

@@ -20,31 +20,31 @@ public class DRadioButton {
 		this.text = text;
 	}
 
-	public void render(PGraphics g, boolean checked) {
+	public void render(boolean checked) {
 		if (!visible) return;
-		g.pushStyle();
+		p.pushStyle();
 		if (active) {
-			g.fill(backgroundColor);
-			g.stroke(borderColor);
+			p.fill(backgroundColor);
+			p.stroke(borderColor);
 		} else {
-			g.fill(inactiveBackgroundColor);
-			g.stroke(inactiveBorderColor);
+			p.fill(inactiveBackgroundColor);
+			p.stroke(inactiveBorderColor);
 		}
-		g.ellipseMode(PConstants.CORNER);
-		g.ellipse(x, y, s, s);
+		p.ellipseMode(PConstants.CORNER);
+		p.ellipse(x, y, s, s);
 		if (active)
-			g.fill(checkColor);
+			p.fill(checkColor);
 		else
-			g.fill(inactiveCheckColor);
-		g.noStroke();
-		g.ellipse(x+s/4, y+s/4, s/2, s/2);
+			p.fill(inactiveCheckColor);
+		p.noStroke();
+		p.ellipse(x+s/4, y+s/4, s/2, s/2);
 		if (active)
-			g.fill(textColor);
+			p.fill(textColor);
 		else
-			g.fill(inactiveTextColor);
-		g.textAlign(PConstants.LEFT, PConstants.CENTER);
-		g.text(text, x+s*1.5f, y+s/2);
-		g.popStyle();
+			p.fill(inactiveTextColor);
+		p.textAlign(PConstants.LEFT, PConstants.CENTER);
+		p.text(text, x+s*1.5f, y+s/2);
+		p.popStyle();
 	}
 
 	public boolean checkIfHovered() {

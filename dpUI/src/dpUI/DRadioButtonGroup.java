@@ -17,11 +17,11 @@ public class DRadioButtonGroup {
 		drb.add(i);
 	}
 
-	public void renderAll(PGraphics g) {
+	public void renderAll() {
 		int n = 0;
 		for (DRadioButton i : drb) {
 			n++;
-			i.render(g, n == currentActive);
+			i.render(n == currentActive);
 		}
 	}
 

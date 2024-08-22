@@ -1,7 +1,6 @@
 package dpUI;
 
 import processing.core.PApplet;
-import processing.core.PGraphics;
 
 public class DButton {
 	protected PApplet p;
@@ -32,36 +31,36 @@ public class DButton {
 		return p.mouseX > x && p.mouseX < x + w + anim && p.mouseY > y - anim && p.mouseY < y + h;
 	}
 
-	public void render(PGraphics g) {
+	public void render() {
 		float animTarget = 0;
-		g.pushStyle();
-		g.fill(backgroundColor);
-		g.strokeWeight(borderSize);
-		g.stroke(borderColor);
+		p.pushStyle();
+		p.fill(backgroundColor);
+		p.strokeWeight(borderSize);
+		p.stroke(borderColor);
 		if (visible) {
-			g.rect(x, y, w, h);
+			p.rect(x, y, w, h);
 		}
-		g.fill(foregroundColor);
+		p.fill(foregroundColor);
 		if (checkIfHovered()) {
 			if (enableAnimations) {
 				animTarget = 8;
 			}
-			g.fill(foregroundSelectColor);
+			p.fill(foregroundSelectColor);
 		}
 		if (!active)
-			g.fill(inactiveColor);
+			p.fill(inactiveColor);
 		if (visible) {
-			g.rect(x + anim, y - anim, w, h);
+			p.rect(x + anim, y - anim, w, h);
 			if (active)
-				g.fill(textColor);
+				p.fill(textColor);
 			else
-				g.fill(inactiveTextColor);
-			g.text(text, x + textXOffset + anim, y + textYOffset - anim);
+				p.fill(inactiveTextColor);
+			p.text(text, x + textXOffset + anim, y + textYOffset - anim);
 		}
 		anim += (animTarget - anim) / 5;
 		if (Math.abs(animTarget - anim) < 0.5f || !enableAnimations) {
 			anim = animTarget;
 		}
-		g.popStyle();
+		p.popStyle();
 	}
 }
