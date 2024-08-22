@@ -11,7 +11,6 @@ import processing.core.PGraphics;
 public class DMenu {
 	protected PApplet p;
 	public PGraphics g;
-	public int x, y;
 	public List<DButton> db = new ArrayList<>(0);
 	public List<DProgressBar> dpb = new ArrayList<>(0);
 	public List<DCheckbox> dc = new ArrayList<>(0);
@@ -19,11 +18,7 @@ public class DMenu {
 	public List<DLabel> dl = new ArrayList<>(0);
 	public boolean visible = true;
 
-	public DMenu(PApplet p, int x, int y, int w, int h, String renderer) {
-		this.p = p;
-		this.x = x;
-		this.y = y;
-		this.g = p.createGraphics(w, h, renderer);
+	public DMenu() {
 	}
 
 	public void add(DButton i) {
@@ -54,7 +49,6 @@ public class DMenu {
 		for (DCheckbox i : dc) i.render(g);
 		for (DRadioButtonGroup i : drbg) i.renderAll(g);
 		for (DLabel i : dl) i.render(g);
-		p.image(g, x, y);
 	}
 
 	public void checkClick() {
