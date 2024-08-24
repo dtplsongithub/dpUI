@@ -89,7 +89,7 @@ public class DMenu {
 	}
 	
 	public void mouseWheel(processing.event.MouseEvent e) {
-		scrollY += e.getCount()*20;
+		scrollY += e.getCount()*-20;
 		if (scrollY > maxScrollY) scrollY = maxScrollY;
 		if (scrollY < 0) scrollY = 0;
 	}
