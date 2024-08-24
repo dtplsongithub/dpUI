@@ -4,13 +4,11 @@ import processing.core.PApplet;
 import processing.core.PConstants;
 
 public class DLabel {
-	protected PApplet p;
 	public boolean visible = true;
 	public int x, y, alignX = PConstants.LEFT, alignY = PConstants.BASELINE, textColor = 0xffffffff;
 	public String text;
 
-	public DLabel(PApplet p, int x, int y, String text) {
-		this.p = p;
+	public DLabel(int x, int y, String text) {
 		this.x = x;
 		this.y = y;
 		this.text = text;
@@ -25,7 +23,7 @@ public class DLabel {
 		this.alignY = alignY;
 	}
 
-	public void render() {
+	public void render(PApplet p) {
 		if (!visible)
 			return;
 		p.pushStyle();

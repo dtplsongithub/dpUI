@@ -3,7 +3,7 @@ package dpUI;
 import processing.core.PApplet;
 
 public class DButton {
-	protected PApplet p;
+	protected PApplet c;
 	public int x, y, w, h;
 	public String text;
 	private float anim = 0;
@@ -17,8 +17,8 @@ public class DButton {
 		}
 	};
 
-	public DButton(PApplet p, int x, int y, int w, int h, String text) {
-		this.p = p;
+	public DButton(PApplet c, int x, int y, int w, int h, String text) {
+		this.c = c;
 		this.x = x;
 		this.y = y;
 		this.w = w;
@@ -28,10 +28,10 @@ public class DButton {
 
 	public boolean checkIfHovered() {
 		if (!visible || !active) return false;
-		return p.mouseX > x && p.mouseX < x + w + anim && p.mouseY > y - anim && p.mouseY < y + h;
+		return c.mouseX > x && c.mouseX < x + w + anim && c.mouseY > y - anim && c.mouseY < y + h;
 	}
 
-	public void render() {
+	public void render(PApplet p) {
 		float animTarget = 0;
 		p.pushStyle();
 		p.fill(backgroundColor);

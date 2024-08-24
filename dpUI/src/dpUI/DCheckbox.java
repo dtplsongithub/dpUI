@@ -4,15 +4,15 @@ import processing.core.PApplet;
 import processing.core.PConstants;
 
 public class DCheckbox {
-	protected PApplet p;
+	protected PApplet c;
 	public int x, y, s = 16, borderColor = 0xffffffff, backgroundColor = 0xffcccccc, checkColor = 0xff000000,
 			textColor = 0xffffffff, inactiveBorderColor = 0xffeeeeee, inactiveBackgroundColor = 0xff777777,
 			inactiveCheckColor = 0xff333333, inactiveTextColor = 0xff777777;
 	public boolean visible = true, active = true, checked = false, defaultState = false;
 	public String text;
 
-	public DCheckbox(PApplet p, int x, int y, int s, String text) {
-		this.p = p;
+	public DCheckbox(PApplet c, int x, int y, int s, String text) {
+		this.c = c;
 		this.x = x;
 		this.y = y;
 		this.s = s;
@@ -22,10 +22,10 @@ public class DCheckbox {
 	public boolean checkIfHovered() {
 		if (!visible || !active)
 			return false;
-		return p.mouseX > x && p.mouseX < x + s && p.mouseY > y && p.mouseY < y + s;
+		return c.mouseX > x && c.mouseX < x + s && c.mouseY > y && c.mouseY < y + s;
 	}
 
-	public void render() {
+	public void render(PApplet p) {
 		if (!active)
 			checked = defaultState;
 		if (!visible)

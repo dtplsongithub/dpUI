@@ -4,7 +4,6 @@ import processing.core.PApplet;
 import processing.core.PConstants;
 
 public class DProgressBar {
-	protected PApplet p;
 	public int x, y, w, h, borderColor = 0xFF00FF00, progressColor = 0xFF00FF00, interiorColor = 0xFF003300,
 			textColor = 0xFFFFFFFF;
 	public boolean visible = true, appendProgressToText = true;
@@ -12,15 +11,14 @@ public class DProgressBar {
 	public String text = "";
 	private int interiorW, interiorH;
 
-	public DProgressBar(PApplet p, int x, int y, int w, int h) {
-		this.p = p;
+	public DProgressBar(int x, int y, int w, int h) {
 		this.x = x;
 		this.y = y;
 		this.w = w;
 		this.h = h;
 	}
 
-	public void render() {
+	public void render(PApplet p) {
 		if (!visible) {
 			return;
 		}

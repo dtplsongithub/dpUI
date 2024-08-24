@@ -2,25 +2,23 @@ package dpUI;
 
 import processing.core.PApplet;
 import processing.core.PConstants;
-import processing.core.PGraphics;
-
 public class DRadioButton {
-	protected PApplet p;
+	protected PApplet c;
 	public boolean visible = true, active = true;
 	public int x, y, s = 16, borderColor = 0xffffffff, backgroundColor = 0xffcccccc, checkColor = 0xff000000,
 			textColor = 0xffffffff, inactiveBorderColor = 0xffeeeeee, inactiveBackgroundColor = 0xff777777,
 			inactiveCheckColor = 0xff333333, inactiveTextColor = 0xff777777;
 	public String text;
 
-	public DRadioButton(PApplet p, int x, int y, int s, String text) {
-		this.p = p;
+	public DRadioButton(PApplet c, int x, int y, int s, String text) {
+		this.c = c;
 		this.x = x;
 		this.y = y;
 		this.s = s;
 		this.text = text;
 	}
 
-	public void render(boolean checked) {
+	public void render(PApplet p, boolean checked) {
 		if (!visible) return;
 		p.pushStyle();
 		if (active) {
@@ -37,7 +35,7 @@ public class DRadioButton {
 		else
 			p.fill(inactiveCheckColor);
 		p.noStroke();
-		p.ellipse(x+s/4, y+s/4, s/2, s/2);
+		if (checked) p.ellipse(x+s/4, y+s/4, s/2, s/2);
 		if (active)
 			p.fill(textColor);
 		else
@@ -50,6 +48,6 @@ public class DRadioButton {
 	public boolean checkIfHovered() {
 		if (!visible || !active)
 			return false;
-		return p.mouseX > x && p.mouseX < x + s && p.mouseY > y && p.mouseY < y + s;
+		return c.mouseX > x && c.mouseX < x + s && c.mouseY > y && c.mouseY < y + s;
 	}
 }
