@@ -69,9 +69,10 @@ public class DMenu {
 	}
 
 	public void checkClick() {
-		if (!visible) {
+		if (!visible || p.mouseX > x + w || p.mouseY > y + h + scrollY) {
 			return;
 		}
+		p.mouseY -= scrollY;
 		for (DButton i : db) {
 			if (i.checkIfHovered()) {
 				i.event.run();
