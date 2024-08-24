@@ -9,7 +9,7 @@ public class DDropdown extends DMenu {
 	public int w = 0, h = 0, contenth = 100;
 
 	public DDropdown(PApplet p, int x, int y, int w, int h, int maxScrollY, String summary) {
-		super(p, x, y, w, h, maxScrollY);
+		super(p, x, y, w, h);
 		this.summary = summary;
 	}
 	

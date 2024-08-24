@@ -2,6 +2,7 @@ package dpUI;
 
 import processing.core.PApplet;
 import processing.core.PConstants;
+import processing.core.PGraphics;
 
 public class DProgressBar {
 	public int x, y, w, h, borderColor = 0xFF00FF00, progressColor = 0xFF00FF00, interiorColor = 0xFF003300,
@@ -18,7 +19,7 @@ public class DProgressBar {
 		this.h = h;
 	}
 
-	public void render(PApplet p) {
+	public void render(PGraphics p) {
 		if (!visible) {
 			return;
 		}

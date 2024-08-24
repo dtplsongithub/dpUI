@@ -1,7 +1,7 @@
 package dpUI;
 
-import processing.core.PApplet;
 import processing.core.PConstants;
+import processing.core.PGraphics;
 
 public class DLabel {
 	public boolean visible = true;
@@ -23,7 +23,7 @@ public class DLabel {
 		this.alignY = alignY;
 	}
 
-	public void render(PApplet p) {
+	public void render(PGraphics p) {
 		if (!visible)
 			return;
 		p.pushStyle();

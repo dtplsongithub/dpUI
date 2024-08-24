@@ -2,6 +2,7 @@ package dpUI;
 
 import processing.core.PApplet;
 import processing.core.PConstants;
+import processing.core.PGraphics;
 
 public class DCheckbox {
 	protected PApplet c;
@@ -25,7 +26,7 @@ public class DCheckbox {
 		return c.mouseX > x && c.mouseX < x + s && c.mouseY > y && c.mouseY < y + s;
 	}
 
-	public void render(PApplet p) {
+	public void render(PGraphics p) {
 		if (!active)
 			checked = defaultState;
 		if (!visible)

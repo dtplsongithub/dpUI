@@ -2,6 +2,8 @@ package dpUI;
 
 import processing.core.PApplet;
 import processing.core.PConstants;
+import processing.core.PGraphics;
+
 public class DRadioButton {
 	protected PApplet c;
 	public boolean visible = true, active = true;
@@ -18,7 +20,7 @@ public class DRadioButton {
 		this.text = text;
 	}
 
-	public void render(PApplet p, boolean checked) {
+	public void render(PGraphics p, boolean checked) {
 		if (!visible) return;
 		p.pushStyle();
 		if (active) {

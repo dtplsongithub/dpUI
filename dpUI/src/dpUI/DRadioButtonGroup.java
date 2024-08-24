@@ -3,7 +3,7 @@ package dpUI;
 import java.util.ArrayList;
 import java.util.List;
 
-import processing.core.PApplet;
+import processing.core.PGraphics;
 
 public class DRadioButtonGroup {
 	public List<DRadioButton> drb = new ArrayList<>(0);
@@ -17,7 +17,7 @@ public class DRadioButtonGroup {
 		drb.add(i);
 	}
 
-	public void renderAll(PApplet c) {
+	public void renderAll(PGraphics c) {
 		int n = 0;
 		for (DRadioButton i : drb) {
 			n++;

@@ -1,6 +1,7 @@
 package dpUI;
 
 import processing.core.PApplet;
+import processing.core.PGraphics;
 
 public class DButton {
 	protected PApplet c;
@@ -31,7 +32,7 @@ public class DButton {
 		return c.mouseX > x && c.mouseX < x + w + anim && c.mouseY > y - anim && c.mouseY < y + h;
 	}
 
-	public void render(PApplet p) {
+	public void render(PGraphics p) {
 		float animTarget = 0;
 		p.pushStyle();
 		p.fill(backgroundColor);
