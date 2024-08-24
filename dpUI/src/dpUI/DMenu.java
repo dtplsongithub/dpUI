@@ -54,15 +54,17 @@ public class DMenu {
 	public void renderAll() {
 		if (!visible)
 			return;
-		g.translate(x, y+scrollY);
 		g.beginDraw();
-		g.background(0);
+		g.pushMatrix();
+		g.translate(x, y+scrollY);
+		g.background(backgroundColor);
 		for (DButton i : db) i.render(g);
 		for (DProgressBar i : dpb) i.render(g);
 		for (DCheckbox i : dc) i.render(g);
 		for (DRadioButtonGroup i : drbg) i.renderAll(g);
 		for (DLabel i : dl) i.render(g);
 		g.endDraw();
+		g.popMatrix();
 		p.image(g, x, y);
 	}
 
@@ -87,7 +89,7 @@ public class DMenu {
 	}
 	
 	public void mouseWheel(processing.event.MouseEvent e) {
-		scrollY = e.getCount()*20;
-		if (scrollY > maxScrollY) scrollY = maxScrollY;
+		scrollY += e.getCount()*20;
+		if (scrollY < -maxScrollY) scrollY = -maxScrollY;
 	}
 }
