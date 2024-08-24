@@ -14,7 +14,7 @@ public class DMenu {
 	public PGraphics g;
 	public int scrollY = 0;
 	public int maxScrollY = 0;
-	public int x = 0, y = 0, w = 0, h = 0;
+	public int x = 0, y = 0, w = 0, h = 0, backgroundColor = 0xff000000;
 	public List<DButton> db = new ArrayList<>(0);
 	public List<DProgressBar> dpb = new ArrayList<>(0);
 	public List<DCheckbox> dc = new ArrayList<>(0);
@@ -55,12 +55,15 @@ public class DMenu {
 		if (!visible)
 			return;
 		g.translate(x, y+scrollY);
+		g.beginDraw();
+		g.background(0);
 		for (DButton i : db) i.render(g);
 		for (DProgressBar i : dpb) i.render(g);
 		for (DCheckbox i : dc) i.render(g);
 		for (DRadioButtonGroup i : drbg) i.renderAll(g);
 		for (DLabel i : dl) i.render(g);
-		p.image(g.get(), x, y);
+		g.endDraw();
+		p.image(g, x, y);
 	}
 
 	public void checkClick() {
