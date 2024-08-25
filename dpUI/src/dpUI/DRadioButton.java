@@ -47,9 +47,9 @@ public class DRadioButton {
 		p.popStyle();
 	}
 
-	public boolean checkIfHovered() {
+	public boolean checkIfHovered(int scrollY) {
 		if (!visible || !active)
 			return false;
-		return c.mouseX > x && c.mouseX < x + s && c.mouseY > y && c.mouseY < y + s;
+		return c.mouseX > x && c.mouseX < x + s && c.mouseY-scrollY > y && c.mouseY-scrollY < y + s;
 	}
 }
