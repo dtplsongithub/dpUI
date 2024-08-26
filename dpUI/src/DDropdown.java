@@ -21,14 +21,14 @@ public class DDropdown extends DMenu {
 		p.fill(summaryBackgroundColor);
 		p.rect(dx, dy, w, dh);
 		p.fill(summaryTextColor);
-		p.textAlign(PConstants.CENTER, PConstants.CENTER);
+		p.textAlign(PConstants.LEFT, PConstants.CENTER);
 		p.strokeWeight(5);
 		p.strokeJoin(PConstants.MITER);
 		p.strokeCap(PConstants.ROUND);
 		int sxo = dx + (s==DDropdownStyle.RIGHT?w-16:0), syo = dy + dh/2-8;
-		if (s == DDropdownStyle.LEFT) p.text(summary, dx + w / 2 + 8, dy + dh / 2);
-		if (s == DDropdownStyle.RIGHT) p.text(summary, dx + w / 2 - 8 , dy + dh / 2);
-		if (s == DDropdownStyle.INVIZ) p.text(summary, dx + w / 2, dy + dh / 2);
+		if (s == DDropdownStyle.LEFT) p.text(summary, dx + 8, dy + dh / 2);
+		if (s == DDropdownStyle.RIGHT) p.text(summary, dx, dy + dh / 2);
+		if (s == DDropdownStyle.INVIZ) p.text(summary, dx, dy + dh / 2);
 		p.stroke(summaryTextColor);
 		if (s == DDropdownStyle.INVIZ) p.noStroke();
 		p.noFill();
