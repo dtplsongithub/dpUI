@@ -10,12 +10,12 @@ public class DDropdown extends DMenu {
 	public String summary = "";
 	public int dx = 0, dy = 0, dh = 20, summaryBackgroundColor = 0xff111111, summaryTextColor = 0xffffffff;
 
-	public DDropdown(PApplet p, int x, int y, int w, int h, int contentH, String summary) {
-		super(p, x, y, w, contentH);
+	public DDropdown(PApplet p, int dx, int dy, int w, int h, int contentH, String summary) {
+		super(p, dx, dy+h, w, contentH);
 		this.summary = summary;
 	}
 
-	public void render(PGraphics p) {
+	public void renderAll(PGraphics p) {
 		p.pushStyle();
 		p.noStroke();
 		p.fill(summaryBackgroundColor);
