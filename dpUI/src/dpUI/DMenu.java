@@ -9,7 +9,7 @@ import processing.core.PGraphics;
 // please ignore any "DSomething cannot be resolved to a type" errors.
 // eclipse just hates me
 
-public class DMenu {
+public abstract class DMenu {
 	protected PApplet p;
 	public PGraphics g;
 	public int scrollY = 0;
@@ -20,6 +20,7 @@ public class DMenu {
 	public List<DCheckbox> dc = new ArrayList<>(0);
 	public List<DRadioButtonGroup> drbg = new ArrayList<>(0);
 	public List<DLabel> dl = new ArrayList<>(0);
+	public List<DDropdown> dd = new ArrayList<>(0);
 	public boolean visible = true;
 
 	public DMenu(PApplet p, int x, int y, int w, int h) {
@@ -51,6 +52,10 @@ public class DMenu {
 		dl.add(i);
 	}
 
+	public void add(DDropdown i) {
+		dd.add(i);
+	}
+
 	public void renderAll() {
 		if (!visible)
 			return;
@@ -63,6 +68,7 @@ public class DMenu {
 		for (DCheckbox i : dc) i.render(g);
 		for (DRadioButtonGroup i : drbg) i.renderAll(g);
 		for (DLabel i : dl) i.render(g);
+		for (DDropdown i : dd) i.render(g);
 		g.endDraw();
 		g.popMatrix();
 		p.image(g, x, y);
