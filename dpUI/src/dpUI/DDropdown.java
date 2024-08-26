@@ -18,7 +18,7 @@ public class DDropdown extends DMenu {
 		this.summary = summary;
 	}
 	
-	public void renderAll() {
+	public void renderAll(PGraphics p) {
 		p.pushStyle();
 		p.noStroke();
 		p.fill(summaryBackgroundColor);

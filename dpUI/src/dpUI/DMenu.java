@@ -68,7 +68,6 @@ public class DMenu {
 		for (DCheckbox i : dc) i.render(g);
 		for (DRadioButtonGroup i : drbg) i.renderAll(g);
 		for (DLabel i : dl) i.render(g);
-		for (DDropdown i : dd) i.renderAll(g);
 		g.endDraw();
 		g.popMatrix();
 		p.image(g, x, y);
