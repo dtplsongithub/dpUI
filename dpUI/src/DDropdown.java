@@ -1,5 +1,3 @@
-package dpUI;
-
 import processing.core.PApplet;
 import processing.core.PConstants;
 
@@ -41,6 +39,12 @@ public class DDropdown extends DMenu {
 		p.popStyle();
 		if (extended)
 			super.renderAll();
+	}
+
+	public boolean checkIfHovered() {
+		if (!visible)
+			return false;
+		return p.mouseX > dx && p.mouseX < dx + w && p.mouseY > dy && p.mouseY < dy + dh;
 	}
 
 }

@@ -1,13 +1,8 @@
-package dpUI;
-
 import java.util.ArrayList;
 import java.util.List;
 import processing.core.PApplet;
 import processing.core.PConstants;
 import processing.core.PGraphics;
-
-// please ignore any "DSomething cannot be resolved to a type" errors.
-// eclipse just hates me
 
 public class DMenu {
 	protected PApplet p;
