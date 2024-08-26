@@ -9,7 +9,7 @@ import processing.core.PGraphics;
 // please ignore any "DSomething cannot be resolved to a type" errors.
 // eclipse just hates me
 
-public abstract class DMenu {
+public class DMenu {
 	protected PApplet p;
 	public PGraphics g;
 	public int scrollY = 0;

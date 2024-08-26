@@ -8,12 +8,12 @@ public class DDropdown extends DMenu {
 	public boolean extended = false;
 	public DDropdownStyle s = DDropdownStyle.LEFT;
 	public String summary = "";
-	public int dx = 0, dy = 0, dh = 20, summaryBackgroundColor = 0xff111111, summaryTextColor = 0xffffffff;
+	public int dx = 0, dy = -20, dh = 20, summaryBackgroundColor = 0xff111111, summaryTextColor = 0xffffffff;
 
-	public DDropdown(PApplet p, int dx, int dy, int w, int dh, int contentH, String summary) {
-		super(p, dx, dy+dh, w, contentH);
+	public DDropdown(PApplet p, int dx, int y, int w, int dh, int contentH, String summary) {
+		super(p, dx, dh, w, contentH);
 		this.dx = dx;
-		this.dy = dy;
+		this.dy = y-dh;
 		this.dh = dh;
 		this.summary = summary;
 	}
