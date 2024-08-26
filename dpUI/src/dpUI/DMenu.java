@@ -51,10 +51,6 @@ public class DMenu {
 		dl.add(i);
 	}
 
-	public void add(DDropdown i) {
-		dd.add(i);
-	}
-
 	public void renderAll() {
 		if (!visible)
 			return;
