@@ -8,7 +8,7 @@ public class DDropdown extends DMenu {
 	public boolean extended = false;
 	public DDropdownStyle s = DDropdownStyle.LEFT;
 	public String summary = "";
-	public int dx = 0, dy = 0, dw = 0, dh = 0, summaryBackgroundColor = 0xff111111, summaryTextColor = 0xffffffff;
+	public int dx = 0, dy = 0, dh = 20, summaryBackgroundColor = 0xff111111, summaryTextColor = 0xffffffff;
 
 	public DDropdown(PApplet p, int x, int y, int w, int h, int contentH, String summary) {
 		super(p, x, y, w, contentH);
@@ -19,16 +19,16 @@ public class DDropdown extends DMenu {
 		p.pushStyle();
 		p.noStroke();
 		p.fill(summaryBackgroundColor);
-		p.rect(dx, dy, dw, dh);
+		p.rect(dx, dy, w, dh);
 		p.fill(summaryTextColor);
 		p.textAlign(PConstants.CENTER, PConstants.CENTER);
 		p.strokeWeight(5);
 		p.strokeJoin(PConstants.MITER);
 		p.strokeCap(PConstants.ROUND);
 		int sxo = dx + (s==DDropdownStyle.RIGHT?w-16:0), syo = dy + dh/2-8;
-		if (s == DDropdownStyle.LEFT) p.text(summary, dx + dw / 2 + 8, dy + dh / 2);
-		if (s == DDropdownStyle.RIGHT) p.text(summary, dx + dw / 2 - 8 , dy + dh / 2);
-		if (s == DDropdownStyle.INVIZ) p.text(summary, dx + dw / 2, dy + dh / 2);
+		if (s == DDropdownStyle.LEFT) p.text(summary, dx + w / 2 + 8, dy + dh / 2);
+		if (s == DDropdownStyle.RIGHT) p.text(summary, dx + w / 2 - 8 , dy + dh / 2);
+		if (s == DDropdownStyle.INVIZ) p.text(summary, dx + w / 2, dy + dh / 2);
 		p.stroke(summaryTextColor);
 		if (s == DDropdownStyle.INVIZ) p.noStroke();
 		p.beginShape();
