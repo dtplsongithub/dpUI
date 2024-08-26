@@ -31,6 +31,7 @@ public class DDropdown extends DMenu {
 		if (s == DDropdownStyle.INVIZ) p.text(summary, dx + w / 2, dy + dh / 2);
 		p.stroke(summaryTextColor);
 		if (s == DDropdownStyle.INVIZ) p.noStroke();
+		p.noFill();
 		p.beginShape();
 		p.vertex(sxo, syo+8);
 		p.vertex(sxo+8, syo+(extended?0:16));
@@ -45,6 +46,11 @@ public class DDropdown extends DMenu {
 		if (!visible)
 			return false;
 		return p.mouseX > dx && p.mouseX < dx + w && p.mouseY > dy && p.mouseY < dy + dh;
+	}
+	
+	public void checkClick() {
+		if (checkIfHovered()) extended = !extended;
+		super.checkClick();
 	}
 
 }
