@@ -2,7 +2,6 @@ package dpUI;
 
 import processing.core.PApplet;
 import processing.core.PConstants;
-import processing.core.PGraphics;
 
 public class DDropdown extends DMenu {
 	public boolean extended = false;
@@ -18,7 +17,7 @@ public class DDropdown extends DMenu {
 		this.summary = summary;
 	}
 	
-	public void renderAll(PGraphics p) {
+	public void renderAll() {
 		p.pushStyle();
 		p.noStroke();
 		p.fill(summaryBackgroundColor);

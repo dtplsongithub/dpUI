@@ -20,7 +20,6 @@ public class DMenu {
 	public List<DCheckbox> dc = new ArrayList<>(0);
 	public List<DRadioButtonGroup> drbg = new ArrayList<>(0);
 	public List<DLabel> dl = new ArrayList<>(0);
-	public List<DDropdown> dd = new ArrayList<>(0);
 	public boolean visible = true;
 
 	public DMenu(PApplet p, int x, int y, int w, int h) {
