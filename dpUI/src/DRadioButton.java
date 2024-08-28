@@ -50,6 +50,6 @@ public class DRadioButton {
 	public boolean checkIfHovered(int scrollY, int px, int py) {
 		if (!visible || !active)
 			return false;
-		return c.mouseX > x && c.mouseX < x + s && c.mouseY-scrollY > y && c.mouseY-scrollY < y + s;
+		return c.mouseX > x+px && c.mouseX < x + s+px && c.mouseY-scrollY > y+py && c.mouseY-scrollY < y + s+py;
 	}
 }
