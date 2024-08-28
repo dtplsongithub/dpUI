@@ -51,7 +51,7 @@ public class DMenu {
 			return;
 		g.beginDraw();
 		g.pushMatrix();
-		g.translate(x, y+scrollY);
+		g.translate(0,scrollY);
 		g.background(backgroundColor);
 		for (DButton i : db) i.render(g, scrollY, x, y);
 		for (DProgressBar i : dpb) i.render(g);
