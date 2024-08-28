@@ -27,12 +27,12 @@ public class DButton {
 		this.text = text;
 	}
 
-	public boolean checkIfHovered(int scrollY) {
+	public boolean checkIfHovered(int scrollY, int px, int py) {
 		if (!visible || !active) return false;
-		return c.mouseX > x && c.mouseX < x + w + anim && c.mouseY-scrollY > y - anim && c.mouseY-scrollY < y + h;
+		return c.mouseX-px > x && c.mouseX-px < x + w + anim && c.mouseY-scrollY-py > y - anim && c.mouseY-scrollY-py < y + h;
 	}
 
-	public void render(PGraphics p, int scrollY) {
+	public void render(PGraphics p, int scrollY, int px, int py) {
 		float animTarget = 0;
 		p.pushStyle();
 		p.fill(backgroundColor);
@@ -42,7 +42,7 @@ public class DButton {
 			p.rect(x, y, w, h);
 		}
 		p.fill(foregroundColor);
-		if (checkIfHovered(scrollY)) {
+		if (checkIfHovered(scrollY, px, py)) {
 			if (enableAnimations) {
 				animTarget = 8;
 			}

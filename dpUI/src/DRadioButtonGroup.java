@@ -25,11 +25,11 @@ public class DRadioButtonGroup {
 		}
 	}
 
-	public void checkAll(int scrollY) {
+	public void checkAll(int scrollY, int px, int py) {
 		int n = 0;
 		for (DRadioButton i : drb) {
 			n++;
-			if (i.checkIfHovered(scrollY)) {
+			if (i.checkIfHovered(scrollY, px, py)) {
 				currentActive = n;
 				break;
 			}

@@ -53,7 +53,7 @@ public class DMenu {
 		g.pushMatrix();
 		g.translate(x, y+scrollY);
 		g.background(backgroundColor);
-		for (DButton i : db) i.render(g, scrollY);
+		for (DButton i : db) i.render(g, scrollY, x, y);
 		for (DProgressBar i : dpb) i.render(g);
 		for (DCheckbox i : dc) i.render(g);
 		for (DRadioButtonGroup i : drbg) i.renderAll(g);
@@ -69,18 +69,18 @@ public class DMenu {
 		}
 		p.mouseY -= scrollY;
 		for (DButton i : db) {
-			if (i.checkIfHovered(scrollY)) {
+			if (i.checkIfHovered(scrollY, x, y)) {
 				i.event.run();
 			}
 		}
 		for (DCheckbox i : dc) {
-			if (i.checkIfHovered(scrollY)) {
+			if (i.checkIfHovered(scrollY, x, y)) {
 				if (i.visible && i.active)
 					i.checked = !i.checked;
 			}
 		}
 		for (DRadioButtonGroup i : drbg) {
-			i.checkAll(scrollY);
+			i.checkAll(scrollY, x, y);
 		}
 	}
 	
