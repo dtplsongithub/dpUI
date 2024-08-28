@@ -29,7 +29,7 @@ public class DButton {
 
 	public boolean checkIfHovered(int scrollY, int px, int py) {
 		if (!visible || !active) return false;
-		return c.mouseX > x+px && c.mouseX < x + w + py && c.mouseY-scrollY > y+py && c.mouseY-scrollY-py < y + h;
+		return c.mouseX > x+px && c.mouseX < x + w + px && c.mouseY-scrollY > y+py && c.mouseY-scrollY-py < y + h;
 	}
 
 	public void render(PGraphics p, int scrollY, int px, int py) {
