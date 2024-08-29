@@ -1,2 +1,0 @@
-# dpUI source code
-yes
