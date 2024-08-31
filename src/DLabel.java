@@ -3,9 +3,8 @@
 import processing.core.PConstants;
 import processing.core.PGraphics;
 
-public class DLabel {
-	public boolean visible = true;
-	public int x, y, alignX = PConstants.LEFT, alignY = PConstants.BASELINE, textColor = 0xffffffff;
+public class DLabel extends DComponent {
+	public int alignX = PConstants.LEFT, alignY = PConstants.BASELINE, textColor = 0xffffffff;
 	public String text;
 
 	public DLabel(int x, int y, String text) {

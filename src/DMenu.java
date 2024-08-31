@@ -10,11 +10,7 @@ public class DMenu {
 	public int scrollY = 0;
 	public int maxScrollY = 0;
 	public int x = 0, y = 0, w = 0, h = 0, backgroundColor = 0xff000000;
-	public List<DButton> db = new ArrayList<>(0);
-	public List<DProgressBar> dpb = new ArrayList<>(0);
-	public List<DCheckbox> dc = new ArrayList<>(0);
-	public List<DRadioButtonGroup> drbg = new ArrayList<>(0);
-	public List<DLabel> dl = new ArrayList<>(0);
+	public List<DComponent> dc = new ArrayList<>(0);
 	public boolean visible = true;
 
 	public DMenu(PApplet p, int x, int y, int w, int h) {
@@ -25,25 +21,8 @@ public class DMenu {
 		this.w = w;
 		this.h = h;
 	}
-
-	public void add(DButton i) {
-		db.add(i);
-	}
-
-	public void add(DProgressBar i) {
-		dpb.add(i);
-	}
-
-	public void add(DCheckbox i) {
+	public void add(DComponent i) {
 		dc.add(i);
-	}
-
-	public void add(DRadioButtonGroup i) {
-		drbg.add(i);
-	}
-
-	public void add(DLabel i) {
-		dl.add(i);
 	}
 
 	public void renderAll() {
@@ -53,11 +32,7 @@ public class DMenu {
 		g.pushMatrix();
 		g.translate(0,scrollY);
 		g.background(backgroundColor);
-		for (DButton i : db) i.render(g, scrollY, x, y);
-		for (DProgressBar i : dpb) i.render(g);
-		for (DCheckbox i : dc) i.render(g);
-		for (DRadioButtonGroup i : drbg) i.renderAll(g);
-		for (DLabel i : dl) i.render(g);
+		for (DComponent i : dc) i.render(g);
 		g.endDraw();
 		g.popMatrix();
 		p.image(g, x, y);
@@ -68,20 +43,7 @@ public class DMenu {
 			return;
 		}
 		p.mouseY -= scrollY;
-		for (DButton i : db) {
-			if (i.checkIfHovered(scrollY, x, y)) {
-				i.event.run();
-			}
-		}
-		for (DCheckbox i : dc) {
-			if (i.checkIfHovered(scrollY, x, y)) {
-				if (i.visible && i.active)
-					i.checked = !i.checked;
-			}
-		}
-		for (DRadioButtonGroup i : drbg) {
-			i.checkAll(scrollY, x, y);
-		}
+// shrug
 	}
 	
 	public void checkScroll(processing.event.MouseEvent e) {

@@ -3,12 +3,10 @@
 import processing.core.PApplet;
 import processing.core.PGraphics;
 
-public class DButton {
-	protected PApplet c;
-	public int x, y, w, h;
+public class DButton extends DInteractive {
 	public String text;
 	private float anim = 0;
-	public boolean toggle = false, toggler = false, enableAnimations = true, active = true, visible = true;
+	public boolean toggle = false, toggler = false, enableAnimations = true;
 	public int foregroundColor = 0xffffffff, foregroundSelectColor = 0xff80c0ff, backgroundColor = 0x40c4c4c4,
 			textColor = 0xff000000, borderColor = 0xff000000, borderSize = 1, textXOffset = 10, textYOffset = 20,
 			inactiveColor = 0xffbbbbbb, inactiveTextColor;
@@ -25,11 +23,6 @@ public class DButton {
 		this.w = w;
 		this.h = h;
 		this.text = text;
-	}
-
-	public boolean checkIfHovered(int scrollY, int px, int py) {
-		if (!visible || !active) return false;
-		return c.mouseX > x+px && c.mouseX < x + w + px && c.mouseY-scrollY > y+py && c.mouseY-scrollY-py < y + h;
 	}
 
 	public void render(PGraphics p, int scrollY, int px, int py) {
